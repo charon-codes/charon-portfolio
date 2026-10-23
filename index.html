@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Charon | Front-end Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+ --bg:#05070d;--surface:#0c111e;--ink:#f1f4fb;--muted:#8a94ab;--line:#1a2238;--gold:#f5b941;--on-gold:#1a1204;--up:#2dd4bf;--down:#fb7185;
+ --font:"Space Grotesk",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f5f9;--surface:#fff;--ink:#090d1a;--muted:#525c75;--line:#d7dde9;--gold:#a86a00;--on-gold:#fff;--up:#0f9d8a;--down:#e11d48}}
+:root[data-theme="light"]{--bg:#f3f5f9;--surface:#fff;--ink:#090d1a;--muted:#525c75;--line:#d7dde9;--gold:#a86a00;--on-gold:#fff;--up:#0f9d8a;--down:#e11d48}
+:root[data-theme="dark"]{--bg:#05070d;--surface:#0c111e;--ink:#f1f4fb;--muted:#8a94ab;--line:#1a2238;--gold:#f5b941;--on-gold:#1a1204;--up:#2dd4bf;--down:#fb7185}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.7;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:40}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;background:var(--gold);z-index:50}
+#glow{position:fixed;left:0;top:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 15%,transparent),transparent 65%);pointer-events:none;z-index:5;will-change:transform}
+@media (hover:none){#glow{display:none}}
+header{position:fixed;top:calc(env(safe-area-inset-top,0px) + 3px);left:0;right:0;z-index:30;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
+.brand{font-family:var(--mono);font-weight:700;letter-spacing:.2em}
+nav{display:flex;gap:2px;align-items:center}
+nav a,nav button{padding:4px 13px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;cursor:pointer}
+nav a:hover,nav button:hover{color:var(--ink)}
+nav a.hire{background:var(--gold);color:var(--on-gold);font-weight:700;margin-left:8px}
+
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:90px 0 60px}
+#chart,#parts{position:absolute;inset:0;width:100%;height:100%}
+#chart{opacity:.9}#parts{pointer-events:none}
+.hero .wrap{position:relative;pointer-events:none;width:100%}
+h1{font-size:clamp(64px,17vw,230px);font-weight:700;line-height:.95;letter-spacing:-.04em;margin:14px 0 18px}
+.hero.pz h1{color:transparent}
+.tag{font-size:clamp(20px,3.4vw,38px);font-weight:500;line-height:1.25;max-width:22ch}
+.type{margin-top:16px;font-family:var(--mono);font-size:clamp(13px,1.8vw,17px);color:var(--gold);font-weight:700;min-height:1.8em}
+.type::after{content:"";display:inline-block;width:9px;height:1em;background:var(--gold);margin-left:6px;vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;pointer-events:auto}
+.btn{padding:14px 30px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.btn.gold{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
+.btn:hover{transition:transform .15s}
+.hint{position:absolute;right:22px;bottom:22px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+
+.tape{border-block:1px solid var(--line);background:var(--surface);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.12em}
+.tape div{display:inline-block;animation:tape 32s linear infinite}
+.tape span{margin:0 22px}.u{color:var(--up)}.d{color:var(--down)}
+@keyframes tape{to{transform:translateX(-50%)}}
+
+section{padding:96px 0}
+h2{font-size:clamp(34px,6.5vw,78px);font-weight:700;line-height:1;letter-spacing:-.03em;text-transform:uppercase;margin:10px 0 14px}
+.sub{color:var(--muted);max-width:54ch;margin-bottom:44px;font-size:18px}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+.about p{font-size:20px}.about p+p{margin-top:16px;color:var(--muted);font-size:17px}
+.facts{border-top:1px solid var(--line);font-family:var(--mono);font-size:13px}
+.facts div{display:flex;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+.facts span:first-child{color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.facts span:last-child{font-weight:700;text-align:right}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.tile{position:relative;padding:34px 28px;background:var(--surface);overflow:hidden;transition:transform .15s ease-out;will-change:transform}
+.tile::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--x,50%) var(--y,0%),color-mix(in srgb,var(--gold) 24%,transparent),transparent 70%);opacity:0;transition:opacity .25s}
+.tile:hover::before{opacity:1}
+.tile>*{position:relative}
+.tile b{display:block;font-size:30px;font-weight:700;letter-spacing:-.02em}
+.tile span{color:var(--muted)}
+
+.rows{border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:1.2fr 1.6fr auto;gap:24px;align-items:center;padding:34px 4px;border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
+.row:hover{padding-left:22px;background:var(--surface)}
+.row h3{font-size:clamp(24px,3.6vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.row p{color:var(--muted)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags i{font-style:normal;font-family:var(--mono);font-size:11px;padding:2px 10px;border:1px solid var(--gold);color:var(--gold)}
+
+.tl{list-style:none;border-left:2px solid var(--line);padding-left:30px;display:grid;gap:38px;margin-left:6px}
+.tl li{position:relative}
+.tl li::before{content:"";position:absolute;left:-39px;top:9px;width:14px;height:14px;background:var(--gold);transform:rotate(45deg)}
+.tl time{font-family:var(--mono);color:var(--gold);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.tl h3{font-size:26px;font-weight:700;letter-spacing:-.02em}.tl p{color:var(--muted)}
+
+.term{background:#04060b;color:#d6deeb;border:1px solid var(--line);font-family:var(--mono);font-size:14px;box-shadow:0 30px 70px -30px color-mix(in srgb,var(--gold) 40%,transparent)}
+.tbar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid #1a2238}
+.tbar i{width:11px;height:11px;border-radius:50%;background:#374151}
+.tout{height:300px;overflow:auto;padding:16px 18px}
+.tout div{white-space:pre-wrap;line-height:1.9}.tout .cmd{color:#f5b941}
+.tin{display:flex;gap:8px;padding:12px 18px;border-top:1px solid #1a2238}
+.tin span{color:#f5b941}
+.tin input{flex:1;background:none;border:0;color:#fff;font:inherit;font-size:16px;outline:0}
+.qc{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.qc button{font-family:var(--mono);font-size:12px;padding:5px 14px;border:1px solid var(--line);background:var(--surface);color:var(--gold);cursor:pointer}
+
+.contact{padding:120px 0 90px;border-top:1px solid var(--line)}
+.contact h2{font-size:clamp(40px,9vw,120px)}
+.contact .row2{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+footer{color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:0 22px 40px;text-align:center}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.rv.in{opacity:1;transform:none}
+
+@media (max-width:760px){
+ nav a:not(.hire){display:none}
+ .about{grid-template-columns:1fr}
+ .row{grid-template-columns:1fr;gap:10px}
+ section{padding:64px 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="glow"></div>
+<header>
+ <div class="wrap">
+  <a class="brand" href="#top">CHARON</a>
+  <nav>
+   <a href="#about">About</a><a href="#skills">Stack</a><a href="#projects">Work</a><a href="#path">Path</a>
+   <button id="theme" aria-label="Toggle theme">◐</button>
+   <a class="hire" href="#contact">Hire me</a>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+ <div class="hero">
+  <canvas id="chart" aria-hidden="true"></canvas>
+  <canvas id="parts" aria-hidden="true"></canvas>
+  <div class="wrap">
+   <div class="mono">// Tehran · Front-end developer</div>
+   <h1>CHARON</h1>
+   <div class="tag">I build websites that hit harder than templates.</div>
+   <div class="type" id="type" aria-live="off"></div>
+   <div class="cta"><a class="btn gold" href="#projects">See the work</a><a class="btn" href="#contact">Talk to me</a></div>
+  </div>
+  <div class="hint">move · click · break it</div>
+ </div>
+
+ <div class="tape" aria-hidden="true"><div>
+  <span>HTML5 <b class="u">▲</b></span><span>CSS3 <b class="u">▲</b></span><span>JAVASCRIPT <b class="u">▲</b></span><span>GIT <b class="u">▲</b></span><span>RESPONSIVE <b class="u">▲</b></span><span>TEMPLATES <b class="d">▼</b></span><span>BLOAT <b class="d">▼</b></span><span>HTML5 <b class="u">▲</b></span><span>CSS3 <b class="u">▲</b></span><span>JAVASCRIPT <b class="u">▲</b></span><span>GIT <b class="u">▲</b></span><span>RESPONSIVE <b class="u">▲</b></span><span>TEMPLATES <b class="d">▼</b></span><span>BLOAT <b class="d">▼</b></span>
+ </div></div>
+
+ <section id="about"><div class="wrap">
+  <div class="mono">[ 01 ] About</div>
+  <h2>Named after the ferryman.</h2>
+  <p class="sub">In myth, Charon carries travelers across the river. I do the same with ideas: from rough sketch to live website.</p>
+  <div class="about">
+   <div>
+    <p>Every line of my code is hand-written. No page builders, no copy-pasted themes. Just HTML, CSS and JavaScript, shaped until it feels right.</p>
+    <p>I'm 24, based in Tehran, one term away from finishing my associate degree in computer programming. Off the keyboard I follow the markets, so I think in data, timing and risk.</p>
+   </div>
+   <div class="facts">
+    <div><span>City</span><span>Tehran</span></div>
+    <div><span>Age</span><span>24</span></div>
+    <div><span>Education</span><span>Computer Programming (Assoc.)</span></div>
+    <div><span>Focus</span><span>Front-end</span></div>
+   </div>
+  </div>
+ </div></section>
+
+ <section id="skills"><div class="wrap">
+  <div class="mono">[ 02 ] Stack</div>
+  <h2>The toolkit.</h2>
+  <p class="sub">Hover the cards.</p>
+  <div class="tiles">
+   <div class="tile"><b>HTML5</b><span>Semantic, accessible structure</span></div>
+   <div class="tile"><b>CSS3</b><span>Grid, Flexbox, responsive layouts, motion</span></div>
+   <div class="tile"><b>JavaScript</b><span>DOM, events, state and logic</span></div>
+   <div class="tile"><b>Git / GitHub</b><span>Version control and shipping</span></div>
+   <div class="tile"><b>DevTools</b><span>Debug, inspect, optimize</span></div>
+   <div class="tile"><b>UI Design</b><span>Type, color and spacing that work</span></div>
+  </div>
+ </div></section>
+
+ <section id="terminal"><div class="wrap">
+  <div class="mono">[ 03 ] Terminal</div>
+  <h2>Talk to me.</h2>
+  <p class="sub">A real terminal. Type a command or tap a button.</p>
+  <div class="term"><div class="tbar"><i></i><i></i><i></i></div><div class="tout" id="tout" aria-live="polite"></div>
+   <div class="tin"><span>$</span><input id="tin" type="text" autocomplete="off" spellcheck="false" aria-label="Command" placeholder="help"></div></div>
+  <div class="qc"><button data-c="about">about</button><button data-c="skills">skills</button><button data-c="projects">projects</button><button data-c="trade">trade</button><button data-c="sudo hire-me">sudo hire-me</button></div>
+ </div></section>
+
+ <section id="projects"><div class="wrap">
+  <div class="mono">[ 04 ] Work</div>
+  <h2>Selected builds.</h2>
+  <p class="sub">Swap each row for a real project and link.</p>
+  <div class="rows">
+   <a class="row" href="#"><h3>Personal portfolio</h3><p>Multi-section site with theming, motion and a fully responsive layout.</p><div class="tags"><i>HTML</i><i>CSS</i><i>JS</i></div></a>
+   <a class="row" href="#"><h3>Online store</h3><p>Product grid, filters and a cart persisted with LocalStorage.</p><div class="tags"><i>JS</i><i>UI</i></div></a>
+   <a class="row" href="#"><h3>Content blog</h3><p>Article list with search and SEO-friendly structure.</p><div class="tags"><i>JS</i><i>SEO</i></div></a>
+   <a class="row" href="#"><h3>Business site</h3><p>Multi-page site with a contact form and mobile navigation.</p><div class="tags"><i>HTML</i><i>CSS</i></div></a>
+  </div>
+ </div></section>
+
+ <section id="path"><div class="wrap">
+  <div class="mono">[ 05 ] Path</div>
+  <h2>The route so far.</h2>
+  <p class="sub">From the classroom to real builds.</p>
+  <ol class="tl">
+   <li><time>Now</time><h3>Building a portfolio and real web projects</h3><p>Daily practice with HTML, CSS and JavaScript.</p></li>
+   <li><time>Final term</time><h3>Associate degree, Computer Programming</h3><p>One term left.</p></li>
+  </ol>
+ </div></section>
+
+ <div class="contact" id="contact"><div class="wrap">
+  <div class="mono">[ 06 ] Contact</div>
+  <h2>Got a project? Let's build it.</h2>
+  <div class="row2"><button class="btn gold" id="copy">example@email.com</button><a class="btn" href="https://github.com/" rel="noopener">GitHub</a><a class="btn" href="https://t.me/" rel="noopener">Telegram</a></div>
+ </div></div>
+</main>
+<footer>© 2026 CHARON · TEHRAN</footer>
+
+<script>
+(function(){
+var root=document.documentElement,reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function setTheme(t){if(t)root.setAttribute("data-theme",t)}
+try{setTheme(localStorage.getItem("theme"))}catch(e){}
+document.getElementById("theme").onclick=function(){
+ var a=root.getAttribute("data-theme"),dark=a?a==="dark":matchMedia("(prefers-color-scheme: dark)").matches,n=dark?"light":"dark";
+ setTheme(n);try{localStorage.setItem("theme",n)}catch(e){}
+};
+var bar=document.getElementById("bar");
+addEventListener("scroll",function(){var h=root.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+"%"},{passive:true});
+document.querySelectorAll(".tile").forEach(function(t){t.addEventListener("pointermove",function(e){var r=t.getBoundingClientRect();t.style.setProperty("--x",(e.clientX-r.left)+"px");t.style.setProperty("--y",(e.clientY-r.top)+"px");if(!reduce)t.style.transform="perspective(700px) rotateX("+(((e.clientY-r.top)/r.height-.5)*-8)+"deg) rotateY("+(((e.clientX-r.left)/r.width-.5)*8)+"deg)"});t.addEventListener("pointerleave",function(){t.style.transform=""})});
+var cp=document.getElementById("copy");
+cp.onclick=function(){var t=cp.textContent;try{navigator.clipboard.writeText(t)}catch(e){}cp.textContent="Copied ✓";setTimeout(function(){cp.textContent=t},1600)};
+var roles=["Front-end developer","Hand-coded. Zero templates.","Market-minded problem solver"],el=document.getElementById("type"),ri=0,ci=0,del=false;
+if(reduce){el.textContent=roles[0]}else{(function tick(){
+ var w=roles[ri];ci+=del?-1:1;el.textContent=w.slice(0,ci);
+ var d=del?30:70;if(!del&&ci===w.length){del=true;d=1400}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;d=300}
+ setTimeout(tick,d)})()}
+/* candlestick chart */
+var cv=document.getElementById("chart"),cx=cv.getContext("2d"),W=0,H=0,mx=-1,t0=performance.now(),C=[],s=11;
+function rnd(){s=s*16807%2147483647;return s/2147483647}
+var p0=100;for(var i=0;i<60;i++){var o=p0,c=o+(rnd()-.4)*7+.4;C.push({o:o,c:c,h:Math.max(o,c)+rnd()*3,l:Math.min(o,c)-rnd()*3});p0=c}
+function v(n){return getComputedStyle(root).getPropertyValue(n).trim()}
+function size(){var r=cv.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}
+size();addEventListener("resize",size);
+cv.parentNode.addEventListener("pointermove",function(e){var r=cv.getBoundingClientRect();mx=e.clientX-r.left});
+cv.parentNode.addEventListener("pointerleave",function(){mx=-1});
+function frame(now){
+ var t=reduce?1:Math.min(1,(now-t0)/3000),n=Math.max(2,Math.floor(C.length*(1-Math.pow(1-t,3))));
+ cx.clearRect(0,0,W,H);
+ var lo=1e9,hi=-1e9;C.forEach(function(k){lo=Math.min(lo,k.l);hi=Math.max(hi,k.h)});
+ var top=H*.18,bot=H*.14,Y=function(q){return H-bot-(q-lo)/(hi-lo)*(H-top-bot)};
+ var cw=W/C.length,up=v("--up"),dn=v("--down"),ln=v("--line");
+ cx.strokeStyle=ln;cx.lineWidth=1;
+ for(var g=1;g<6;g++){var gy=H*g/6;cx.beginPath();cx.moveTo(0,gy);cx.lineTo(W,gy);cx.stroke()}
+ var hot=mx>=0?Math.min(C.length-1,Math.max(0,Math.floor(mx/cw))):-1;
+ for(var i=0;i<n;i++){var k=C[i],x=i*cw+cw/2,col=k.c>=k.o?up:dn;
+  cx.globalAlpha=hot<0||i===hot?1:.55;cx.strokeStyle=col;cx.fillStyle=col;cx.lineWidth=1.5;
+  cx.beginPath();cx.moveTo(x,Y(k.h));cx.lineTo(x,Y(k.l));cx.stroke();
+  var a=Y(Math.max(k.o,k.c)),b=Y(Math.min(k.o,k.c));cx.fillRect(x-cw*.3,a,cw*.6,Math.max(2,b-a))}
+ cx.globalAlpha=1;
+ if(hot>=0&&hot<n){var k=C[hot],x=hot*cw+cw/2,y=Y(k.c);
+  cx.setLineDash([4,5]);cx.strokeStyle=v("--gold");cx.lineWidth=1;
+  cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke();cx.setLineDash([]);
+  cx.fillStyle=v("--gold");cx.fillRect(W-74,y-12,74,24);cx.fillStyle=v("--on-gold");cx.font="700 13px Arial";cx.textAlign="center";cx.fillText(k.c.toFixed(2),W-37,y+4.5)}
+ var L=C[n-1],ly=Y(L.c),lc=L.c>=L.o?up:dn;cx.setLineDash([2,4]);cx.strokeStyle=lc;cx.lineWidth=1;cx.beginPath();cx.moveTo(0,ly);cx.lineTo(W,ly);cx.stroke();cx.setLineDash([]);cx.fillStyle=lc;cx.fillRect(W-74,ly-11,74,22);cx.fillStyle="#04110f";cx.font="700 13px Arial";cx.textAlign="center";cx.fillText(L.c.toFixed(2),W-37,ly+4.5);
+ requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+/* particle name */
+var pc=document.getElementById("parts"),px=pc.getContext("2d"),P=[],hero=pc.parentNode,h1=hero.querySelector("h1"),pm={x:-999,y:-999},HW=0,HH=0;
+hero.addEventListener("pointermove",function(e){var r=hero.getBoundingClientRect();pm.x=e.clientX-r.left;pm.y=e.clientY-r.top});
+hero.addEventListener("pointerleave",function(){pm.x=pm.y=-999});
+function build(){
+ var hr=hero.getBoundingClientRect(),r=h1.getBoundingClientRect(),d=devicePixelRatio||1;HW=hr.width;HH=hr.height;
+ pc.width=HW*d;pc.height=HH*d;px.setTransform(d,0,0,d,0,0);
+ var w=Math.ceil(r.width),h=Math.ceil(r.height),o=document.createElement("canvas");o.width=w;o.height=h;
+ var ox=o.getContext("2d"),fs=parseFloat(getComputedStyle(h1).fontSize);
+ ox.font="700 "+fs+"px 'Space Grotesk',Arial,sans-serif";ox.textBaseline="middle";ox.textAlign="left";ox.fillStyle="#000";ox.fillText("CHARON",0,h/2);
+ var data=ox.getImageData(0,0,w,h).data,st=w<500?3:5;P=[];
+ for(var y=0;y<h;y+=st)for(var x=0;x<w;x+=st)if(data[(y*w+x)*4+3]>128)P.push({x:Math.random()*HW,y:Math.random()*HH,hx:r.left-hr.left+x,hy:r.top-hr.top+y,vx:0,vy:0});
+ if(P.length)hero.classList.add("pz")}
+function pl(){
+ px.clearRect(0,0,HW,HH);var ink=v("--ink"),gd=v("--gold"),cur="";
+ for(var i=0;i<P.length;i++){var p=P[i],mx2=p.x-pm.x,my2=p.y-pm.y,md=mx2*mx2+my2*my2;
+  if(md<14000){var f=(14000-md)/14000*3/Math.sqrt(md+1);p.vx+=mx2*f;p.vy+=my2*f}
+  p.vx=(p.vx+(p.hx-p.x)*.045)*.86;p.vy=(p.vy+(p.hy-p.y)*.045)*.86;p.x+=p.vx;p.y+=p.vy;
+  var c=Math.abs(p.vx)+Math.abs(p.vy)>1.6?gd:ink;if(c!==cur){px.fillStyle=c;cur=c}
+  px.fillRect(p.x,p.y,2.3,2.3)}
+ requestAnimationFrame(pl)}
+if(!reduce){var rt;document.fonts.load("700 100px 'Space Grotesk'").then(function(){build();requestAnimationFrame(pl)});
+ addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(build,250)})}
+setInterval(function(){if(reduce||document.hidden)return;var l=C[C.length-1],o=l.c,c=o+(rnd()-.5)*7+(100-o)*.01;C.push({o:o,c:c,h:Math.max(o,c)+rnd()*3,l:Math.min(o,c)-rnd()*3});C.shift()},1100);
+hero.addEventListener("pointerdown",function(e){var r=hero.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;P.forEach(function(p){var dx=p.x-x,dy=p.y-y,d=Math.sqrt(dx*dx+dy*dy)+1,f=Math.max(0,1-d/280)*40;p.vx+=dx/d*f;p.vy+=dy/d*f})});
+var gl=document.getElementById("glow");
+addEventListener("pointermove",function(e){gl.style.transform="translate("+e.clientX+"px,"+e.clientY+"px)"},{passive:true});
+if(!reduce&&"IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+ document.querySelectorAll("section h2,.sub,.about>div,.tl li,.contact h2").forEach(function(el){el.classList.add("rv");io.observe(el)})}
+document.querySelectorAll(".btn,.hire").forEach(function(b){b.addEventListener("pointermove",function(e){if(reduce)return;var r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.25)+"px,"+((e.clientY-r.top-r.height/2)*.35)+"px)"});b.addEventListener("pointerleave",function(){b.style.transform=""})});
+/* terminal */
+var out=document.getElementById("tout"),inp=document.getElementById("tin");
+var CMD={help:"commands: about, skills, projects, trade, contact, clear",
+ about:"Charon, 24, Tehran.\nFinal-term student, Computer Programming.\nI turn ideas into live websites.",
+ skills:"HTML5 | CSS3 | JavaScript\nGit | GitHub | DevTools",
+ projects:"personal portfolio\nonline store\ncontent blog\nbusiness site",
+ trade:"I read markets for fun. Same habits in code: data, logic, patience.",
+ contact:"example@email.com"};
+function add(t,c){var d=document.createElement("div");d.textContent=t;if(c)d.className=c;out.appendChild(d);out.scrollTop=out.scrollHeight}
+function run(c){c=c.trim().toLowerCase();if(!c)return;add("$ "+c,"cmd");
+ if(c==="clear"){out.textContent="";return}
+ if(c==="sudo hire-me"){add("Access granted ✅ Redirecting to contact...");setTimeout(function(){document.getElementById("contact").scrollIntoView({behavior:reduce?"auto":"smooth"})},900);return}
+ add(CMD[c]||"command not found. try: help")}
+add("Welcome. Type help to start.");
+inp.addEventListener("keydown",function(e){if(e.key==="Enter"){run(inp.value);inp.value=""}});
+document.querySelectorAll(".qc button").forEach(function(b){b.onclick=function(){run(b.dataset.c)}});
+})();
+</script>
+</body>
+</html>
