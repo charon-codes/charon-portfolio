@@ -3,6 +3,7 @@ window.LOCALES={
  "en": {
   "roles": [
    "Front-end developer",
+   "From microcontrollers to the browser",
    "Hand-coded. Zero templates.",
    "Market-minded problem solver"
   ],
@@ -13,16 +14,17 @@ window.LOCALES={
   "granted": "Access granted ✅ Redirecting to contact...",
   "cmd": {
    "help": "commands: about, skills, projects, trade, contact, clear",
-   "about": "Charon, 24, Tehran.\nFinal-term student, Computer Programming.\nI turn ideas into live websites.",
-   "skills": "HTML5 | CSS3 | JavaScript\nGit | GitHub | DevTools",
-   "projects": "personal portfolio\nonline store\ncontent blog\nbusiness site",
+   "about": "Charon, 24, Tehran.\nComputer Engineering student (B.Sc.), associate degree in programming.\nI turn ideas into live websites.",
+   "skills": "HTML5 | CSS3 | JavaScript\nC# | ASP.NET MVC | SQL Server\nGit | GitHub",
+   "projects": "personal portfolio\nmore builds on the way",
    "trade": "I read markets for fun. Same habits in code: data, logic, patience.",
-   "contact": "example@email.com"
+   "contact": "nomad000norahc@gmail.com"
   }
  },
  "fa": {
   "roles": [
    "توسعه‌دهندهٔ فرانت‌اند",
+   "از میکروکنترلر تا مرورگر",
    "کدنویسی دستی. بدون قالب آماده.",
    "حل‌کنندهٔ مسئله با نگاه بازار"
   ],
@@ -33,11 +35,11 @@ window.LOCALES={
   "granted": "دسترسی داده شد ✅ در حال انتقال به بخش تماس...",
   "cmd": {
    "help": "دستورها: about, skills, projects, trade, contact, clear",
-   "about": "Charon، ۲۴ ساله، تهران.\nدانشجوی ترم آخر برنامه‌نویسی کامپیوتر.\nایده را به وب‌سایت زنده تبدیل می‌کنم.",
-   "skills": "HTML5 | CSS3 | JavaScript\nGit | GitHub | DevTools",
-   "projects": "پورتفولیوی شخصی\nفروشگاه آنلاین\nوبلاگ محتوایی\nسایت شرکتی",
+   "about": "Charon، ۲۴ ساله، تهران.\nدانشجوی مهندسی کامپیوتر (کارشناسی)، دارای کاردانی برنامه‌نویسی.\nایده را به وب‌سایت زنده تبدیل می‌کنم.",
+   "skills": "HTML5 | CSS3 | JavaScript\nC# | ASP.NET MVC | SQL Server\nGit | GitHub",
+   "projects": "پورتفولیوی شخصی\nپروژه‌های بیشتر در راه است",
    "trade": "برای سرگرمی بازارها را می‌خوانم. همین عادت‌ها در کد: داده، منطق، صبر.",
-   "contact": "example@email.com"
+   "contact": "nomad000norahc@gmail.com"
   }
  }
 };

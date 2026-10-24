@@ -33,6 +33,7 @@ for (const p of shared.projects) {
   if (p.image && !existsSync(join(ROOT, p.image))) errors.push(`project "${p.id}": image not found (${p.image})`);
 }
 for (const l of ["en", "fa"]) if (shared.cv[l] && !existsSync(join(ROOT, shared.cv[l]))) errors.push(`cv.${l}: file not found (${shared.cv[l]})`);
+if (shared.projects.length < 3) todos.push(`shared.json: only ${shared.projects.length} project(s) — recommended: 3+ real projects`);
 if (!shared.cv.en && !shared.cv.fa) todos.push("shared.json: no CV file set (optional)");
 if (!existsSync(join(ROOT, "assets/fonts/fonts.css"))) todos.push("fonts are loaded from Google Fonts — run: npm run fonts (self-host)");
 

@@ -65,7 +65,7 @@ function render(lang) {
     tiles: c.tiles.map(([n, d]) => `<div class="tile"><b lang="en" dir="ltr">${esc(n)}</b><span>${esc(d)}</span></div>`).join(""),
     qc: ["about", "skills", "projects", "trade", "sudo hire-me"].map((x) => `<button type="button" data-c="${x}">${x}</button>`).join(""),
     rows, tape, contactBtns, foot: esc(digits(ui.foot.replace("{year}", year), lang)),
-    timeline: c.path.map((x) => `<li><time>${esc(x.time)}</time><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p></li>`).join(""),
+    timeline: c.path.map((x) => `<li class="${esc(x.status || "done")}"><time>${esc(x.time)}</time>${x.status === "next" ? `<span class="ahead">${esc(ui.ahead)}</span>` : ""}<h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p></li>`).join(""),
   };
   c.nav.forEach((n, i) => (flat["nav" + i] = esc(n)));
   const ctx = { ...flat, ...Object.fromEntries(Object.entries(c.sections).flatMap(([k, v]) => Object.entries(v).map(([kk, vv]) => [`${k}.${kk}`, esc(vv)]))) };

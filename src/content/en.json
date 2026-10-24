@@ -1,45 +1,214 @@
 {
-  "lang": "en", "dir": "ltr", "locale": "en_US",
-  "meta": { "title": "Charon | Front-end Developer", "description": "Charon is a Tehran-based front-end developer building fast, responsive, hand-coded websites with HTML, CSS and JavaScript. No templates, no page builders.", "jobTitle": "Front-end Developer" },
+  "lang": "en",
+  "dir": "ltr",
+  "locale": "en_US",
+  "meta": {
+    "title": "Charon | Front-end Developer",
+    "description": "Charon is a Tehran-based front-end developer and computer engineering student, building fast, precise, hand-coded websites with HTML, CSS and JavaScript. No templates, no page builders.",
+    "jobTitle": "Front-end Developer"
+  },
   "ui": {
-    "skip": "Skip to content", "theme": "Toggle theme", "menu": "Menu", "langName": "FA", "langTitle": "فارسی", "tgl": "Command",
-    "foot": "© {year} CHARON · TEHRAN", "live": "Live", "code": "Code", "email": "Email", "noscript": "This site works best with JavaScript enabled.",
-    "copied": "Copied ✓", "hint": "This page is also available in English →",
-    "welcome": "Welcome. Type help to start.", "notfound": "command not found. try: help", "granted": "Access granted ✅ Redirecting to contact...",
-    "roles": ["Front-end developer", "Hand-coded. Zero templates.", "Market-minded problem solver"],
+    "skip": "Skip to content",
+    "theme": "Toggle theme",
+    "menu": "Menu",
+    "langName": "FA",
+    "langTitle": "فارسی",
+    "tgl": "Command",
+    "foot": "© {year} CHARON · TEHRAN",
+    "live": "Live",
+    "code": "Code",
+    "email": "Email",
+    "noscript": "This site works best with JavaScript enabled.",
+    "copied": "Copied ✓",
+    "hint": "This page is also available in English →",
+    "welcome": "Welcome. Type help to start.",
+    "notfound": "command not found. try: help",
+    "granted": "Access granted ✅ Redirecting to contact...",
+    "roles": [
+      "Front-end developer",
+      "From microcontrollers to the browser",
+      "Hand-coded. Zero templates.",
+      "Market-minded problem solver"
+    ],
     "cmd": {
       "help": "commands: about, skills, projects, trade, contact, clear",
-      "about": "Charon, 24, Tehran.\nFinal-term student, Computer Programming.\nI turn ideas into live websites.",
-      "skills": "HTML5 | CSS3 | JavaScript\nGit | GitHub | DevTools",
-      "projects": "personal portfolio\nonline store\ncontent blog\nbusiness site",
+      "about": "Charon, 24, Tehran.\nComputer Engineering student (B.Sc.), associate degree in programming.\nI turn ideas into live websites.",
+      "skills": "HTML5 | CSS3 | JavaScript\nC# | ASP.NET MVC | SQL Server\nGit | GitHub",
+      "projects": "personal portfolio\nmore builds on the way",
       "trade": "I read markets for fun. Same habits in code: data, logic, patience."
-    }
+    },
+    "ahead": "Ahead"
   },
-  "nav": ["About", "Stack", "Work", "Path", "Hire me"],
-  "hero": { "loc": "Tehran · Front-end developer", "tag": "I build websites that hit harder than templates.", "cta": ["See the work", "Talk to me"], "hint": "move · click · break it" },
+  "nav": [
+    "About",
+    "Stack",
+    "Work",
+    "Path",
+    "Hire me"
+  ],
+  "hero": {
+    "loc": "Tehran · Front-end developer",
+    "tag": "Engineering-grade websites. Hand-coded, nothing wasted.",
+    "cta": [
+      "See the work",
+      "Talk to me"
+    ],
+    "hint": "move · click · break it"
+  },
   "sections": {
-    "about": { "label": "About", "title": "Named after the ferryman.", "sub": "In myth, Charon carries travelers across the river. I do the same with ideas: from rough sketch to live website." },
-    "skills": { "label": "Stack", "title": "The toolkit.", "sub": "Hover or tap the cards." },
-    "terminal": { "label": "Terminal", "title": "Talk to me.", "sub": "A real terminal. Type a command or tap a button." },
-    "projects": { "label": "Work", "title": "Selected builds.", "sub": "Things I've built, one row at a time." },
-    "path": { "label": "Path", "title": "The route so far.", "sub": "From the classroom to real builds." },
-    "contact": { "label": "Contact", "title": "Got a project? Let's build it." }
+    "about": {
+      "label": "About",
+      "title": "Named after the ferryman.",
+      "sub": "In myth, Charon carries travelers across the river. I do the same with ideas: from rough sketch to live website."
+    },
+    "skills": {
+      "label": "Stack",
+      "title": "The toolkit.",
+      "sub": "Hover or tap the cards."
+    },
+    "terminal": {
+      "label": "Terminal",
+      "title": "Talk to me.",
+      "sub": "A real terminal. Type a command or tap a button."
+    },
+    "projects": {
+      "label": "Work",
+      "title": "Selected builds.",
+      "sub": "Real builds, each with a live demo and source."
+    },
+    "path": {
+      "label": "Path",
+      "title": "The route, so far and ahead.",
+      "sub": "What I've done, and where I'm heading."
+    },
+    "contact": {
+      "label": "Contact",
+      "title": "Got a project? Let's build it."
+    }
   },
   "about": {
     "p1": "Every line of my code is hand-written. No page builders, no copy-pasted themes. Just HTML, CSS and JavaScript, shaped until it feels right.",
-    "p2": "I'm 24, based in Tehran, one term away from finishing my associate degree in computer programming. Off the keyboard I follow the markets, so I think in data, timing and risk.",
-    "facts": [["City", "Tehran"], ["Age", "24"], ["Education", "Computer Programming (Assoc.)"], ["Focus", "Front-end"]]
+    "p2": "I'm 24, based in Tehran, with an associate degree in programming and a B.Sc. in computer engineering in progress. I started with C# and SQL, spent time programming ARM microcontrollers, and settled on the front-end. Off the keyboard I follow the markets, so I think in data, timing and risk.",
+    "facts": [
+      [
+        "City",
+        "Tehran"
+      ],
+      [
+        "Age",
+        "24"
+      ],
+      [
+        "Education",
+        "B.Sc. Computer Eng. (in progress)"
+      ],
+      [
+        "Focus",
+        "Front-end"
+      ]
+    ]
   },
-  "tiles": [["HTML5", "Semantic, accessible structure"], ["CSS3", "Grid, Flexbox, responsive layouts, motion"], ["JavaScript", "DOM, events, state and logic"], ["Git / GitHub", "Version control and shipping"], ["DevTools", "Debug, inspect, optimize"], ["UI Design", "Type, color and spacing that work"]],
+  "tiles": [
+    [
+      "HTML5",
+      "Semantic, accessible structure"
+    ],
+    [
+      "CSS3",
+      "Grid, Flexbox, motion"
+    ],
+    [
+      "JavaScript",
+      "DOM, events, state and logic"
+    ],
+    [
+      "Responsive design",
+      "One layout that works on every screen"
+    ],
+    [
+      "SEO fundamentals",
+      "Structure search engines can read"
+    ],
+    [
+      "C# & ASP.NET MVC",
+      "Back-end logic and web apps"
+    ],
+    [
+      "SQL Server",
+      "Databases, queries and data modeling"
+    ],
+    [
+      "Git / GitHub",
+      "Version control and shipping"
+    ],
+    [
+      "ARM microcontrollers",
+      "Embedded programming and electronics"
+    ]
+  ],
   "projects": {
-    "portfolio": { "title": "Personal portfolio", "desc": "Multi-section site with theming, motion and a fully responsive layout.", "imageAlt": "" },
-    "store": { "title": "Online store", "desc": "Product grid, filters and a cart persisted with LocalStorage.", "imageAlt": "" },
-    "blog": { "title": "Content blog", "desc": "Article list with search and SEO-friendly structure.", "imageAlt": "" },
-    "business": { "title": "Business site", "desc": "Multi-page site with a contact form and mobile navigation.", "imageAlt": "" }
+    "portfolio": {
+      "title": "Personal portfolio",
+      "desc": "Bilingual (EN/FA) site with RTL support, theming, motion and a content-driven build.",
+      "imageAlt": ""
+    }
   },
   "path": [
-    { "time": "Now", "title": "Building a portfolio and real web projects", "desc": "Daily practice with HTML, CSS and JavaScript." },
-    { "time": "Final term", "title": "Associate degree, Computer Programming", "desc": "One term left." }
+    {
+      "time": "2018 – 2020",
+      "title": "Programming foundations",
+      "desc": "C#, WinForms/WPF, SQL Server and client-side web programming courses at Tehran Technical Complex.",
+      "status": "done"
+    },
+    {
+      "time": "2020 – 2021",
+      "title": "Electronics & ARM microcontrollers",
+      "desc": "Electronics internship at a knowledge-based company in Tehran, programming ARM microcontrollers.",
+      "status": "done"
+    },
+    {
+      "time": "Completed",
+      "title": "Associate degree, Computer Programming",
+      "desc": "A formal base in programming, before moving up to a bachelor's.",
+      "status": "done"
+    },
+    {
+      "time": "2024 – 2028",
+      "title": "B.Sc. Computer Engineering",
+      "desc": "Islamic Azad University, Electronics Unit. In progress.",
+      "status": "done"
+    },
+    {
+      "time": "Now",
+      "title": "Building real projects in public",
+      "desc": "This portfolio first, then more projects, each shipped with a live demo and source.",
+      "status": "now"
+    },
+    {
+      "time": "2026 – 2027",
+      "title": "Modern front-end stack",
+      "desc": "TypeScript, React, testing, accessibility and performance.",
+      "status": "next"
+    },
+    {
+      "time": "2027",
+      "title": "First professional role",
+      "desc": "Junior front-end position, internship or freelance work, with real clients and real deadlines.",
+      "status": "next"
+    },
+    {
+      "time": "2028",
+      "title": "Front-end with a full-stack edge",
+      "desc": "Graduate and combine front-end craft with the C#, ASP.NET and SQL Server background.",
+      "status": "next"
+    }
   ],
-  "contact": { "cvLabel": "Download CV", "linkLabels": { "github": "GitHub", "telegram": "Telegram" } }
+  "contact": {
+    "cvLabel": "Download CV",
+    "linkLabels": {
+      "github": "GitHub",
+      "telegram": "Telegram",
+      "instagram": "Instagram"
+    }
+  }
 }
