@@ -1,0 +1,16 @@
+{
+  "baseUrl": "https://charon-codes.github.io/charon-portfolio/",
+  "author": "Charon",
+  "email": "example@email.com",
+  "links": [
+    { "id": "github", "url": "https://github.com/charon-codes" },
+    { "id": "telegram", "url": "https://t.me/" }
+  ],
+  "cv": { "en": "", "fa": "" },
+  "projects": [
+    { "id": "portfolio", "year": "2026", "tags": ["HTML", "CSS", "JS"], "live": "https://charon-codes.github.io/charon-portfolio/", "repo": "https://github.com/charon-codes/charon-portfolio", "image": "" },
+    { "id": "store", "year": "", "tags": ["JS", "UI"], "live": "", "repo": "", "image": "" },
+    { "id": "blog", "year": "", "tags": ["JS", "SEO"], "live": "", "repo": "", "image": "" },
+    { "id": "business", "year": "", "tags": ["HTML", "CSS"], "live": "", "repo": "", "image": "" }
+  ]
+}

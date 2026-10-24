@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="author" content="{{author}}">
+<meta name="theme-color" content="#05070d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f5f9" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="{{url}}">
+<link rel="alternate" hreflang="en" href="{{baseUrl}}">
+<link rel="alternate" hreflang="fa" href="{{baseUrl}}fa/">
+<link rel="alternate" hreflang="x-default" href="{{baseUrl}}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{author}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{url}}">
+<meta property="og:locale" content="{{locale}}">
+<meta property="og:locale:alternate" content="{{altLocale}}">
+<meta property="og:image" content="{{baseUrl}}assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{p}}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{p}}assets/img/apple-touch-icon.png">
+<script type="application/ld+json">{{jsonld}}</script>
+{{fonts}}
+<link rel="stylesheet" href="{{p}}assets/css/base.css">
+<link rel="stylesheet" href="{{p}}assets/css/layout.css">
+<link rel="stylesheet" href="{{p}}assets/css/components.css">
+{{rtl}}<script src="{{p}}assets/js/theme.js"></script>
+<script src="{{p}}assets/js/locales.js" defer></script>
+<script src="{{p}}assets/js/nav.js" defer></script>
+<script src="{{p}}assets/js/ui.js" defer></script>
+<script src="{{p}}assets/js/hero.js" defer></script>
+<script src="{{p}}assets/js/terminal.js" defer></script>
+<script src="{{p}}assets/js/lang.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#top">{{skip}}</a>
+<div id="bar"></div>
+<div id="glow"></div>
+<header>
+ <div class="wrap">
+  <a class="brand" href="#top" lang="en" dir="ltr">CHARON</a>
+  <nav aria-label="Main">
+   <div class="links" id="links">
+    <a href="#about">{{nav0}}</a><a href="#skills">{{nav1}}</a><a href="#projects">{{nav2}}</a><a href="#path">{{nav3}}</a>
+   </div>
+   <button type="button" id="theme" aria-label="{{theme}}">◐</button>
+   <a class="lang" href="{{altHref}}" hreflang="{{altLang}}" lang="{{altLang}}" title="{{langTitle}}">{{langName}}</a>
+   <a class="hire" href="#contact">{{nav4}}</a>
+   <button type="button" id="menu" aria-label="{{menu}}" aria-expanded="false" aria-controls="links"><span></span><span></span></button>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+ <div class="hero">
+  <canvas id="chart" aria-hidden="true"></canvas>
+  <canvas id="parts" aria-hidden="true"></canvas>
+  <div class="wrap">
+   <div class="mono"><span dir="ltr">//</span> {{heroLoc}}</div>
+   <h1 lang="en">CHARON</h1>
+   <div class="tag">{{heroTag}}</div>
+   <div class="type" id="type" aria-live="off"></div>
+   <div class="cta"><a class="btn gold" href="#projects">{{cta0}}</a><a class="btn" href="#contact">{{cta1}}</a></div>
+  </div>
+  <div class="hint">{{heroHint}}</div>
+ </div>
+
+ <div class="tape" aria-hidden="true"><div>{{tape}}</div></div>
+
+ <section id="about"><div class="wrap">
+  <div class="mono"><span dir="ltr">[ 01 ]</span> {{about.label}}</div>
+  <h2>{{about.title}}</h2>
+  <p class="sub">{{about.sub}}</p>
+  <div class="about">
+   <div><p>{{p1}}</p><p>{{p2}}</p></div>
+   <div class="facts">{{facts}}</div>
+  </div>
+ </div></section>
+
+ <section id="skills"><div class="wrap">
+  <div class="mono"><span dir="ltr">[ 02 ]</span> {{skills.label}}</div>
+  <h2>{{skills.title}}</h2>
+  <p class="sub">{{skills.sub}}</p>
+  <div class="tiles">{{tiles}}</div>
+ </div></section>
+
+ <section id="terminal"><div class="wrap">
+  <div class="mono"><span dir="ltr">[ 03 ]</span> {{terminal.label}}</div>
+  <h2>{{terminal.title}}</h2>
+  <p class="sub">{{terminal.sub}}</p>
+  <div class="term"><div class="tbar" aria-hidden="true"><i></i><i></i><i></i></div><div class="tout" id="tout" aria-live="polite"></div>
+   <div class="tin"><span aria-hidden="true">$</span><input id="tin" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="{{tgl}}" placeholder="help"></div></div>
+  <div class="qc">{{qc}}</div>
+ </div></section>
+
+ <section id="projects"><div class="wrap">
+  <div class="mono"><span dir="ltr">[ 04 ]</span> {{projects.label}}</div>
+  <h2>{{projects.title}}</h2>
+  <p class="sub">{{projects.sub}}</p>
+  <div class="rows">{{rows}}</div>
+ </div></section>
+
+ <section id="path"><div class="wrap">
+  <div class="mono"><span dir="ltr">[ 05 ]</span> {{path.label}}</div>
+  <h2>{{path.title}}</h2>
+  <p class="sub">{{path.sub}}</p>
+  <ol class="tl">{{timeline}}</ol>
+ </div></section>
+
+ <div class="contact" id="contact"><div class="wrap">
+  <div class="mono"><span dir="ltr">[ 06 ]</span> {{contact.label}}</div>
+  <h2>{{contact.title}}</h2>
+  <div class="row2">{{contactBtns}}</div>
+ </div></div>
+</main>
+<footer>{{foot}}</footer>
+<noscript><p class="noscript">{{noscript}}</p></noscript>
+</body>
+</html>

@@ -1,0 +1,18 @@
+/* rtl.css — Persian (fa) overrides only. Everything else uses logical properties. */
+html[lang="fa"]{--font:"Space Grotesk","Vazirmatn",Tahoma,Arial,sans-serif;--mono:"JetBrains Mono","Vazirmatn",ui-monospace,Menlo,Consolas,monospace}
+/* Persian letters must stay connected: no tracking, no case transforms */
+html[lang="fa"] body *{letter-spacing:0;text-transform:none}
+html[lang="fa"] body h1{letter-spacing:-.04em}
+html[lang="fa"] body .brand{letter-spacing:.2em}
+html[lang="fa"] body .tape{letter-spacing:.12em}
+html[lang="fa"] body{line-height:1.9}
+html[lang="fa"] h2{line-height:1.35;font-size:clamp(30px,5.4vw,64px)}
+html[lang="fa"] .contact h2{font-size:clamp(34px,7vw,92px)}
+html[lang="fa"] .tag{line-height:1.5;max-width:26ch}
+html[lang="fa"] .sub{font-size:17px}
+html[lang="fa"] .about p{font-size:19px}
+html[lang="fa"] .about p+p{font-size:16px}
+html[lang="fa"] .row h3,html[lang="fa"] .tl h3{line-height:1.4}
+html[lang="fa"] nav a,html[lang="fa"] nav button,html[lang="fa"] .btn,html[lang="fa"] .mono{font-size:13px}
+html[lang="fa"] .tile span{line-height:1.8}
+html[lang="fa"] .acts a{letter-spacing:0}

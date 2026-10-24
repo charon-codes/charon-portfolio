@@ -1,0 +1,60 @@
+/* layout.css — header, hero, sections, timeline, contact, footer */
+header{position:fixed;top:calc(env(safe-area-inset-top,0px) + 3px);inset-inline:0;z-index:30;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
+.brand{font-family:var(--mono);font-weight:700;letter-spacing:.2em}
+nav{display:flex;gap:2px;align-items:center}
+nav a,nav button{padding:4px 13px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:0;cursor:pointer}
+nav a:hover,nav button:hover{color:var(--ink)}
+nav a.hire{background:var(--gold);color:var(--on-gold);font-weight:700;margin-inline-start:8px}
+nav .links{display:flex;gap:2px}
+nav .links a[aria-current="true"]{color:var(--gold)}
+nav a.lang{border:1px solid var(--line);padding:2px 10px;margin-inline-start:4px}
+
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:90px 0 60px}
+#chart,#parts{position:absolute;inset:0;width:100%;height:100%}
+#chart{opacity:.9}#parts{pointer-events:none}
+.hero .wrap{position:relative;pointer-events:none;width:100%}
+h1{font-size:clamp(64px,17vw,230px);font-weight:700;line-height:.95;letter-spacing:-.04em;margin:14px 0 18px}
+.hero.pz h1{color:transparent}
+.tag{font-size:clamp(20px,3.4vw,38px);font-weight:500;line-height:1.25;max-width:22ch}
+.type{margin-top:16px;font-family:var(--mono);font-size:clamp(13px,1.8vw,17px);color:var(--gold);font-weight:700;min-height:1.8em}
+.type::after{content:"";display:inline-block;width:9px;height:1em;background:var(--gold);margin-inline-start:6px;vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;pointer-events:auto}
+.hint{position:absolute;inset-inline-end:22px;bottom:22px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+
+section{padding:96px 0}
+h2{font-size:clamp(34px,6.5vw,78px);font-weight:700;line-height:1;letter-spacing:-.03em;text-transform:uppercase;margin:10px 0 14px}
+.sub{color:var(--muted);max-width:54ch;margin-bottom:44px;font-size:18px}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+.about p{font-size:20px}.about p+p{margin-top:16px;color:var(--muted);font-size:17px}
+.facts{border-top:1px solid var(--line);font-family:var(--mono);font-size:13px}
+.facts div{display:flex;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+.facts span:first-child{color:var(--muted);text-transform:uppercase;letter-spacing:.1em}.facts span:last-child{font-weight:700;text-align:end}
+
+.tl{list-style:none;border-inline-start:2px solid var(--line);padding-inline-start:30px;display:grid;gap:38px;margin-inline-start:6px}
+.tl li{position:relative}
+.tl li::before{content:"";position:absolute;inset-inline-start:-39px;top:9px;width:14px;height:14px;background:var(--gold);transform:rotate(45deg)}
+.tl time{font-family:var(--mono);color:var(--gold);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.tl h3{font-size:26px;font-weight:700;letter-spacing:-.02em}.tl p{color:var(--muted)}
+
+.contact{padding:120px 0 90px;border-top:1px solid var(--line)}
+.contact h2{font-size:clamp(40px,9vw,120px)}
+.contact .row2{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+footer{color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.1em;padding:0 22px 40px;text-align:center}
+
+#menu{display:none;width:40px;height:40px;padding:0;position:relative;color:var(--ink)}
+#menu span{position:absolute;inset-inline:11px;height:2px;background:currentColor;transition:transform .2s,top .2s}
+#menu span:first-child{top:15px}#menu span:last-child{top:23px}
+#menu[aria-expanded="true"] span:first-child{top:19px;transform:rotate(45deg)}
+#menu[aria-expanded="true"] span:last-child{top:19px;transform:rotate(-45deg)}
+@media (max-width:760px){
+ #menu{display:block}
+ nav .links{display:none;position:fixed;top:calc(env(safe-area-inset-top,0px) + 61px);inset-inline:0;flex-direction:column;gap:0;padding:6px 22px 14px;background:var(--bg);border-bottom:1px solid var(--line)}
+ nav .links.open{display:flex}
+ nav .links a{padding:14px 0;font-size:14px;border-bottom:1px solid var(--line)}
+ nav a,nav button{padding-inline:9px}
+ nav a.hire{margin-inline-start:4px}
+ .about{grid-template-columns:1fr}
+ section{padding:64px 0}
+}

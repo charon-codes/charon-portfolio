@@ -1,0 +1,15 @@
+{
+  "name": "charon-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Bilingual (EN/FA) hand-coded portfolio. Zero runtime dependencies.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "fonts": "node scripts/fonts.mjs",
+    "test": "node scripts/build.mjs && node scripts/check.mjs",
+    "serve": "node -e \"require('http').createServer((q,r)=>{const f=require('path').join(process.cwd(),q.url.split('?')[0].replace(/\\/$/,'/index.html'));require('fs').readFile(f,(e,d)=>{if(e){r.statusCode=404;return r.end('404')}const t={'.html':'text/html;charset=utf-8','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.json':'application/json','.woff2':'font/woff2'}[require('path').extname(f)]||'application/octet-stream';r.setHeader('Content-Type',t);r.end(d)})}).listen(8080,()=>console.log('http://localhost:8080'))\""
+  }
+}

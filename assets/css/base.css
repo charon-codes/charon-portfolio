@@ -1,0 +1,23 @@
+/* base.css — tokens, reset, typography, shared primitives */
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+ --bg:#05070d;--surface:#0c111e;--ink:#f1f4fb;--muted:#8a94ab;--line:#1a2238;--gold:#f5b941;--on-gold:#1a1204;--up:#2dd4bf;--down:#fb7185;
+ --font:"Space Grotesk",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f5f9;--surface:#fff;--ink:#090d1a;--muted:#525c75;--line:#d7dde9;--gold:#8f5800;--on-gold:#fff;--up:#0f9d8a;--down:#e11d48}}
+:root[data-theme="light"]{--bg:#f3f5f9;--surface:#fff;--ink:#090d1a;--muted:#525c75;--line:#d7dde9;--gold:#8f5800;--on-gold:#fff;--up:#0f9d8a;--down:#e11d48}
+:root[data-theme="dark"]{--bg:#05070d;--surface:#0c111e;--ink:#f1f4fb;--muted:#8a94ab;--line:#1a2238;--gold:#f5b941;--on-gold:#1a1204;--up:#2dd4bf;--down:#fb7185}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.7;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:40}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.skip{position:absolute;inset-inline-start:12px;top:-80px;z-index:100;padding:8px 14px;background:var(--gold);color:var(--on-gold);font-family:var(--mono);font-size:13px}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 8px)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);inset-inline-start:0;height:3px;width:0;background:var(--gold);z-index:50}
+#glow{position:fixed;left:0;top:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--gold) 15%,transparent),transparent 65%);pointer-events:none;z-index:5;will-change:transform}
+@media (hover:none){#glow{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.noscript{padding:16px 22px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:13px}

@@ -1,0 +1,52 @@
+/* components.css — buttons, ticker, tiles, project rows, terminal, language hint */
+.btn{padding:14px 30px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.btn.gold{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
+.btn:hover{transition:transform .15s}
+
+.tape{direction:ltr;border-block:1px solid var(--line);background:var(--surface);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.12em}
+.tape div{display:inline-block;animation:tape 32s linear infinite}
+.tape span{margin:0 22px}.u{color:var(--up)}.d{color:var(--down)}
+@keyframes tape{to{transform:translateX(-50%)}}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.tile{position:relative;padding:34px 28px;background:var(--surface);overflow:hidden;transition:transform .15s ease-out;will-change:transform}
+.tile::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--x,50%) var(--y,0%),color-mix(in srgb,var(--gold) 24%,transparent),transparent 70%);opacity:0;transition:opacity .25s}
+.tile:hover::before{opacity:1}
+.tile>*{position:relative}
+.tile b{display:block;font-size:30px;font-weight:700;letter-spacing:-.02em}
+.tile span{color:var(--muted)}
+
+.rows{border-top:1px solid var(--ink)}
+.row{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) 150px;gap:12px 24px;align-items:center;padding:34px 4px;border-bottom:1px solid var(--line);transition:padding .25s,background .25s}
+.row.has-img{grid-template-columns:150px minmax(0,1.1fr) minmax(0,1.5fr) 150px}
+.row:hover,.row:focus-within{padding-inline-start:22px;background:var(--surface)}
+.thumb{aspect-ratio:8/5;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.rh{display:flex;align-items:baseline;gap:14px}
+.row h3{font-size:clamp(24px,3.6vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.row.linked h3 a::after{content:"";position:absolute;inset:0}
+.yr{font-family:var(--mono);font-size:12px;color:var(--gold)}
+.row p{color:var(--muted)}
+.acts{display:flex;gap:16px;margin-top:10px;position:relative;z-index:1}
+.acts a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--gold)}
+.acts a:hover{color:var(--ink);border-color:var(--ink)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tags i{font-style:normal;font-family:var(--mono);font-size:11px;padding:2px 10px;border:1px solid var(--gold);color:var(--gold)}
+@media (max-width:760px){.row,.row.has-img{grid-template-columns:1fr;gap:10px}.thumb{max-width:360px}.tags{justify-content:flex-start}}
+
+.term{direction:ltr;background:#04060b;color:#d6deeb;border:1px solid var(--line);font-family:var(--mono);font-size:14px;box-shadow:0 30px 70px -30px color-mix(in srgb,var(--gold) 40%,transparent)}
+.tbar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid #1a2238}
+.tbar i{width:11px;height:11px;border-radius:50%;background:#374151}
+.tout{height:300px;overflow:auto;padding:16px 18px}
+.tout div{white-space:pre-wrap;line-height:1.9}.tout .cmd{color:#f5b941}
+.tin{display:flex;gap:8px;padding:12px 18px;border-top:1px solid #1a2238}
+.tin span{color:#f5b941}
+.tin input{flex:1;background:none;border:0;color:#fff;font:inherit;font-size:16px;outline:0;direction:ltr;text-align:left}
+.qc{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.qc button{font-family:var(--mono);font-size:12px;padding:5px 14px;border:1px solid var(--line);background:var(--surface);color:var(--gold);cursor:pointer}
+
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.rv.in{opacity:1;transform:none}
+
+.langhint{position:fixed;inset-inline:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);z-index:60;max-width:380px;margin-inline:auto;display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--surface);border:1px solid var(--gold);font-family:var(--mono);font-size:13px}
+.langhint a{flex:1;color:var(--gold);font-weight:700}
+.langhint button{background:none;border:0;color:var(--muted);font-size:20px;line-height:1;cursor:pointer}
