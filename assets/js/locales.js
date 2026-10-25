@@ -16,7 +16,7 @@ window.LOCALES={
    "help": "commands: about, skills, projects, trade, contact, clear",
    "about": "Charon, 24, Tehran.\nComputer Engineering student (B.Sc.), associate degree in programming.\nI turn ideas into live websites.",
    "skills": "HTML5 | CSS3 | JavaScript\nC# | ASP.NET MVC | SQL Server\nGit | GitHub",
-   "projects": "personal portfolio\nmore builds on the way",
+   "projects": "Gold Desk (XAUUSD)\nNira Café (concept)\nVoltix store (demo)\nFlow Board (Kanban)\nPars Tools\nthis portfolio",
    "trade": "I read markets for fun. Same habits in code: data, logic, patience.",
    "contact": "nomad000norahc@gmail.com"
   }
@@ -37,7 +37,7 @@ window.LOCALES={
    "help": "دستورها: about, skills, projects, trade, contact, clear",
    "about": "Charon، ۲۴ ساله، تهران.\nدانشجوی مهندسی کامپیوتر (کارشناسی)، دارای کاردانی برنامه‌نویسی.\nایده را به وب‌سایت زنده تبدیل می‌کنم.",
    "skills": "HTML5 | CSS3 | JavaScript\nC# | ASP.NET MVC | SQL Server\nGit | GitHub",
-   "projects": "پورتفولیوی شخصی\nپروژه‌های بیشتر در راه است",
+   "projects": "میز معاملات طلا (XAUUSD)\nکافه نیرا (مفهومی)\nفروشگاه Voltix (دمو)\nبرد کانبان\nابزارهای پارسی\nهمین پورتفولیو",
    "trade": "برای سرگرمی بازارها را می‌خوانم. همین عادت‌ها در کد: داده، منطق، صبر.",
    "contact": "nomad000norahc@gmail.com"
   }

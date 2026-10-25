@@ -22,6 +22,67 @@
   },
   "projects": [
     {
+      "id": "gold-desk",
+      "year": "2026",
+      "tags": [
+        "JS",
+        "Canvas",
+        "UI"
+      ],
+      "live": "https://charon-codes.github.io/charon-portfolio/projects/gold-desk/",
+      "repo": "https://github.com/charon-codes/charon-portfolio/tree/main/projects/gold-desk",
+      "image": "assets/img/work/gold-desk.webp"
+    },
+    {
+      "id": "nira-cafe",
+      "year": "2026",
+      "tags": [
+        "HTML",
+        "CSS",
+        "RTL",
+        "i18n"
+      ],
+      "live": "https://charon-codes.github.io/charon-portfolio/projects/nira-cafe/",
+      "repo": "https://github.com/charon-codes/charon-portfolio/tree/main/projects/nira-cafe",
+      "image": "assets/img/work/nira-cafe.webp"
+    },
+    {
+      "id": "circuit-shop",
+      "year": "2026",
+      "tags": [
+        "JS",
+        "A11y",
+        "UI"
+      ],
+      "live": "https://charon-codes.github.io/charon-portfolio/projects/circuit-shop/",
+      "repo": "https://github.com/charon-codes/charon-portfolio/tree/main/projects/circuit-shop",
+      "image": "assets/img/work/circuit-shop.webp"
+    },
+    {
+      "id": "flow-board",
+      "year": "2026",
+      "tags": [
+        "JS",
+        "DnD",
+        "A11y"
+      ],
+      "live": "https://charon-codes.github.io/charon-portfolio/projects/flow-board/",
+      "repo": "https://github.com/charon-codes/charon-portfolio/tree/main/projects/flow-board",
+      "image": "assets/img/work/flow-board.webp"
+    },
+    {
+      "id": "pars-tools",
+      "year": "2026",
+      "tags": [
+        "JS",
+        "RTL",
+        "Jalali"
+      ],
+      "live": "https://charon-codes.github.io/charon-portfolio/projects/pars-tools/",
+      "repo": "https://github.com/charon-codes/charon-portfolio/tree/main/projects/pars-tools",
+      "image": "assets/img/work/pars-tools.webp"
+    },
+    {
       "id": "portfolio",
       "year": "2026",
       "tags": [
@@ -31,7 +92,7 @@
       ],
       "live": "https://charon-codes.github.io/charon-portfolio/",
       "repo": "https://github.com/charon-codes/charon-portfolio",
-      "image": ""
+      "image": "assets/img/work/portfolio.webp"
     }
   ]
 }

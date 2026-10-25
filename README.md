@@ -18,7 +18,7 @@ You only touch JSON. · فقط JSON را ویرایش می‌کنی.
 ```bash
 npm run build     # regenerate index.html, fa/index.html, locales.js, sitemap.xml
 npm run check     # validate + list what content is still missing (TODOs)
-npm test          # build + check
+npm test          # build + check + unit tests
 npm run serve     # http://localhost:8080
 npm run fonts     # one-off: self-host the fonts (needs internet), then build again
 ```
@@ -31,6 +31,8 @@ Adding a project: add an entry to `projects` in `shared.json` (id, links, tags, 
 ## Structure · ساختار
 
 ```
+projects/                   five tested demo projects (see projects/README.md)
+tests/                     unit tests for the projects' logic (node --test)
 src/
   template.html            page skeleton (shared by both languages)
   content/                 shared.json · en.json · fa.json

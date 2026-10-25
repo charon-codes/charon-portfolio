@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flow Board — a keyboard-friendly Kanban</title>
+<meta name="description" content="Flow Board is a Kanban task board with drag and drop, keyboard and touch controls, undo, search, due dates and JSON import/export. Plain JavaScript, data stays in your browser.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23111827'/%3E%3Crect x='10' y='12' width='12' height='40' rx='3' fill='%2338bdf8'/%3E%3Crect x='26' y='12' width='12' height='28' rx='3' fill='%23a78bfa'/%3E%3Crect x='42' y='12' width='12' height='18' rx='3' fill='%2334d399'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to board</a>
+<header class="top">
+  <div><h1>Flow Board</h1><p class="sub">Drag cards, or focus one and use the arrow buttons.</p></div>
+  <div class="tools">
+    <label class="srch"><span class="sr">Search cards</span><input id="q" type="search" placeholder="Search…" autocomplete="off"></label>
+    <label class="sel"><span class="sr">Filter by priority</span><select id="fp"><option value="all">All priorities</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select></label>
+    <button type="button" id="undo" class="btn" disabled>↶ Undo</button>
+    <button type="button" id="addCol" class="btn">+ Column</button>
+    <button type="button" id="export" class="btn">Export</button>
+    <label class="btn file">Import<input type="file" id="import" accept="application/json" hidden></label>
+    <button type="button" id="reset" class="btn danger">Reset</button>
+  </div>
+</header>
+<main><div id="board" class="board" aria-label="Kanban board"></div></main>
+<p id="live" class="sr" role="status" aria-live="polite"></p>
+<p id="toast" class="toast" role="status" hidden></p>
+
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <form id="form" method="dialog" novalidate>
+    <h2 id="dlg-t">Edit card</h2>
+    <label>Title<input id="f-title" maxlength="120" required></label>
+    <label>Description<textarea id="f-desc" rows="3" maxlength="500"></textarea></label>
+    <div class="two"><label>Priority<select id="f-pri"><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label>
+    <label>Due date<input id="f-due" type="date"></label></div>
+    <p class="err" id="f-err" role="alert"></p>
+    <div class="row"><button type="button" class="btn danger" id="f-del">Delete</button><span class="grow"></span><button type="button" class="btn" id="f-cancel">Cancel</button><button type="submit" class="btn primary">Save</button></div>
+  </form>
+</dialog>
+<footer>Your board is saved in this browser only. · <a href="../../">← Portfolio</a> · <a href="https://github.com/charon-codes/charon-portfolio/tree/main/projects/flow-board">source</a></footer>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

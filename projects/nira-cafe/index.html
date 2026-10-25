@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nira Café — slow coffee for fast cities (concept)</title>
+<meta name="description" content="Nira Café is a concept website for a specialty coffee shop: bilingual (English / Persian, RTL), a tabbed menu, opening hours and a table reservation form.">
+<meta property="og:title" content="Nira Café — concept website">
+<meta property="og:description" content="Bilingual EN/FA café website with RTL support, live opening hours and a reservation form with calendar export.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232a1c14'/%3E%3Cpath d='M18 26h24v10a10 10 0 0 1-10 10h-4a10 10 0 0 1-10-10z' fill='%23e9c18f'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Nira Café (concept)","servesCuisine":"Coffee","address":{"@type":"PostalAddress","addressLocality":"Tehran","addressCountry":"IR"},"openingHours":["Sa-Th 08:00-22:00","Fr 10:00-23:00"]}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#menu" data-i18n="skip">Skip to menu</a>
+<div class="ribbon" data-i18n="concept">Concept project · fictional café</div>
+<header class="nav">
+  <a class="logo" href="#top" aria-label="Nira Café">Nira<span>.</span></a>
+  <nav aria-label="Main">
+    <a href="#menu" data-i18n="nav_menu">Menu</a><a href="#story" data-i18n="nav_story">Story</a><a href="#visit" data-i18n="nav_visit">Visit</a><a class="cta-s" href="#reserve" data-i18n="nav_reserve">Reserve</a>
+  </nav>
+  <button type="button" id="lang" class="lang" lang="fa" aria-label="فارسی">FA</button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-t">
+      <p class="status" id="status" aria-live="polite"></p>
+      <h1 data-i18n="h1">Slow coffee for fast cities.</h1>
+      <p class="lead" data-i18n="lead">Single-origin beans, roasted weekly in small batches and brewed with patience.</p>
+      <div class="cta"><a class="btn" href="#reserve" data-i18n="cta1">Reserve a table</a><a class="btn ghost" href="#menu" data-i18n="cta2">See the menu</a></div>
+    </div>
+    <svg class="cup" viewBox="0 0 320 300" role="img" aria-label="" data-i18n-attr="aria-label:cup_alt">
+      <path class="steam s1" d="M120 70c-12 18 12 30 0 50"/><path class="steam s2" d="M160 56c-14 22 14 36 0 62"/><path class="steam s3" d="M200 70c-12 18 12 30 0 50"/>
+      <ellipse cx="160" cy="268" rx="120" ry="16" fill="#00000018"/>
+      <path d="M60 130h200v58a74 74 0 0 1-74 74h-52a74 74 0 0 1-74-74z" fill="#f4ead9"/>
+      <path d="M260 148h22a28 28 0 0 1 0 56h-30" fill="none" stroke="#f4ead9" stroke-width="14" stroke-linecap="round"/>
+      <ellipse cx="160" cy="132" rx="100" ry="16" fill="#6b3f22"/><ellipse cx="160" cy="130" rx="84" ry="10" fill="#8a5632"/>
+      <path d="M130 130c10-8 20 8 30 0s20-8 30 0" fill="none" stroke="#e9c18f" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </section>
+
+  <section id="menu" class="sec" aria-labelledby="h-menu">
+    <h2 id="h-menu" data-i18n="menu_h">Menu</h2>
+    <div class="tabs" role="tablist" aria-label="Menu categories" id="tabs"></div>
+    <ul class="items" id="items" role="tabpanel" tabindex="0"></ul>
+    <p class="note" data-i18n="menu_note">Prices are fictional. In the Persian version they are shown in Toman.</p>
+  </section>
+
+  <section id="story" class="sec story" aria-labelledby="h-story">
+    <h2 id="h-story" data-i18n="story_h">Our story</h2>
+    <p data-i18n="story_p">Nira started as a one-table roastery. We still roast every Thursday, still know our farmers by name, and still believe a good cup needs no rush.</p>
+    <dl class="facts"><div><dt data-i18n="f1_t">Roasted</dt><dd data-i18n="f1_d">Every Thursday</dd></div><div><dt data-i18n="f2_t">Beans</dt><dd data-i18n="f2_d">Single origin</dd></div><div><dt data-i18n="f3_t">Brewing</dt><dd data-i18n="f3_d">Slow, on purpose</dd></div></dl>
+  </section>
+
+  <section id="visit" class="sec" aria-labelledby="h-visit">
+    <h2 id="h-visit" data-i18n="visit_h">Visit us</h2>
+    <div class="visit">
+      <address data-i18n="addr">12 Example Street, Tehran<br>(concept address)</address>
+      <table class="hours"><caption class="sr" data-i18n="hours_c">Opening hours</caption>
+        <tbody><tr><th scope="row" data-i18n="d_satthu">Saturday – Thursday</th><td><bdi dir="ltr">08:00 – 22:00</bdi></td></tr><tr><th scope="row" data-i18n="d_fri">Friday</th><td><bdi dir="ltr">10:00 – 23:00</bdi></td></tr></tbody></table>
+    </div>
+  </section>
+
+  <section id="reserve" class="sec reserve" aria-labelledby="h-res">
+    <h2 id="h-res" data-i18n="res_h">Reserve a table</h2>
+    <form id="rf" novalidate>
+      <div class="f"><label for="name" data-i18n="l_name">Name</label><input id="name" name="name" autocomplete="name" aria-describedby="e-name"><p class="err" id="e-name"></p></div>
+      <div class="f"><label for="phone" data-i18n="l_phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" dir="ltr" aria-describedby="e-phone"><p class="err" id="e-phone"></p></div>
+      <div class="f"><label for="date" data-i18n="l_date">Date</label><input id="date" name="date" type="date" aria-describedby="e-date"><p class="err" id="e-date"></p></div>
+      <div class="f"><label for="time" data-i18n="l_time">Time</label><select id="time" name="time" aria-describedby="e-time"></select><p class="err" id="e-time"></p></div>
+      <div class="f"><label for="guests" data-i18n="l_guests">Guests</label><input id="guests" name="guests" type="number" min="1" max="10" value="2" inputmode="numeric" aria-describedby="e-guests"><p class="err" id="e-guests"></p></div>
+      <button class="btn" type="submit" data-i18n="send">Request reservation</button>
+    </form>
+    <div id="done" class="done" role="status" tabindex="-1" hidden>
+      <h3 data-i18n="done_h">Table requested</h3><p id="done-p"></p>
+      <button type="button" id="ics" class="btn ghost" data-i18n="ics">Add to calendar (.ics)</button>
+    </div>
+  </section>
+</main>
+<footer><p data-i18n="foot">Concept project by Charon. Nothing here is a real business or booking.</p><a href="../../" data-i18n="back">← Back to portfolio</a></footer>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -87,7 +87,7 @@ function locales() {
 function sitemap() {
   const d = new Date().toISOString().slice(0, 10), b = shared.baseUrl;
   const alt = `<xhtml:link rel="alternate" hreflang="en" href="${b}"/><xhtml:link rel="alternate" hreflang="fa" href="${b}fa/"/>`;
-  write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n <url><loc>${b}</loc><lastmod>${d}</lastmod>${alt}</url>\n <url><loc>${b}fa/</loc><lastmod>${d}</lastmod>${alt}</url>\n</urlset>\n`);
+  write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n <url><loc>${b}</loc><lastmod>${d}</lastmod>${alt}</url>\n <url><loc>${b}fa/</loc><lastmod>${d}</lastmod>${alt}</url>\n${shared.projects.filter((p) => p.live.startsWith(b + "projects/")).map((p) => ` <url><loc>${p.live}</loc><lastmod>${d}</lastmod></url>\n`).join("")}</urlset>\n`);
   write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${b}sitemap.xml\n`);
 }
 

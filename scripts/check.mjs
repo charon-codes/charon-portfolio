@@ -30,6 +30,7 @@ for (const l of shared.links) if (/^https?:\/\/t\.me\/?$/.test(l.url) || /github
 for (const p of shared.projects) {
   if (!p.live && !p.repo) todos.push(`shared.json: project "${p.id}" has no live/repo link`);
   if (!p.image) todos.push(`shared.json: project "${p.id}" has no screenshot (optional but recommended)`);
+  if (p.live && p.live.startsWith(shared.baseUrl + "projects/") && !existsSync(join(ROOT, "projects", p.id, "index.html"))) errors.push(`project "${p.id}": projects/${p.id}/index.html not found`);
   if (p.image && !existsSync(join(ROOT, p.image))) errors.push(`project "${p.id}": image not found (${p.image})`);
 }
 for (const l of ["en", "fa"]) if (shared.cv[l] && !existsSync(join(ROOT, shared.cv[l]))) errors.push(`cv.${l}: file not found (${shared.cv[l]})`);

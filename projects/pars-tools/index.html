@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ابزارهای پارسی — تبدیل تاریخ شمسی، عدد به حروف، محاسبه سن</title>
+<meta name="description" content="ابزارهای فارسی: تبدیل تاریخ شمسی و میلادی، نوشتن عدد به حروف، محاسبهٔ سن و تبدیل ارقام. بدون وابستگی و کاملاً آفلاین.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='white' font-family='sans-serif'%3E۱۴%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">پرش به ابزارها</a>
+<header class="top">
+  <div><h1 data-i18n="title">ابزارهای پارسی</h1><p class="today" id="today" aria-live="polite"></p></div>
+  <button type="button" id="lang" class="lang" lang="en" aria-label="English">EN</button>
+</header>
+<main id="main">
+  <div class="tabs" role="tablist" id="tabs" aria-label="Tools"></div>
+
+  <section id="p-date" class="panel" role="tabpanel" aria-labelledby="t-date" tabindex="0">
+    <div class="cards">
+      <form class="card" data-conv="j2g" novalidate>
+        <h2 data-i18n="j2g">شمسی به میلادی</h2>
+        <div class="row3"><label><span data-i18n="year">سال</span><input name="y" inputmode="numeric" dir="ltr" value="1405"></label>
+          <label><span data-i18n="month">ماه</span><select name="m" data-months="fa"></select></label>
+          <label><span data-i18n="day">روز</span><input name="d" inputmode="numeric" dir="ltr" value="1"></label></div>
+        <p class="out" data-out aria-live="polite"></p>
+      </form>
+      <form class="card" data-conv="g2j" novalidate>
+        <h2 data-i18n="g2j">میلادی به شمسی</h2>
+        <div class="row3"><label><span data-i18n="year">سال</span><input name="y" inputmode="numeric" dir="ltr" value="2026"></label>
+          <label><span data-i18n="month">ماه</span><select name="m" data-months="gr"></select></label>
+          <label><span data-i18n="day">روز</span><input name="d" inputmode="numeric" dir="ltr" value="1"></label></div>
+        <p class="out" data-out aria-live="polite"></p>
+      </form>
+    </div>
+    <button type="button" class="btn" id="useToday" data-i18n="useToday">امروز را بگذار</button>
+  </section>
+
+  <section id="p-words" class="panel" role="tabpanel" aria-labelledby="t-words" tabindex="0" hidden>
+    <div class="card">
+      <h2 data-i18n="w_h">عدد به حروف</h2>
+      <label><span data-i18n="w_in">یک عدد وارد کنید (فارسی یا انگلیسی)</span><input id="num" inputmode="numeric" dir="ltr" value="1405" autocomplete="off"></label>
+      <label class="unit"><span data-i18n="w_unit">واحد</span><select id="unit"><option value="" data-i18n="u_none">بدون واحد</option><option value="تومان" data-i18n="u_toman">تومان</option><option value="ریال" data-i18n="u_rial">ریال</option></select></label>
+      <p class="fmt" id="fmt"></p>
+      <p class="out big" id="words" aria-live="polite"></p>
+      <button type="button" class="btn" id="copyWords" data-i18n="copy">کپی</button>
+    </div>
+  </section>
+
+  <section id="p-age" class="panel" role="tabpanel" aria-labelledby="t-age" tabindex="0" hidden>
+    <form class="card" id="ageForm" novalidate>
+      <h2 data-i18n="a_h">محاسبهٔ سن</h2>
+      <p class="hint" data-i18n="a_hint">تاریخ تولد شمسی را وارد کنید.</p>
+      <div class="row3"><label><span data-i18n="year">سال</span><input name="y" inputmode="numeric" dir="ltr" value="1381"></label>
+        <label><span data-i18n="month">ماه</span><select name="m" data-months="fa"></select></label>
+        <label><span data-i18n="day">روز</span><input name="d" inputmode="numeric" dir="ltr" value="15"></label></div>
+      <p class="out big" id="ageOut" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section id="p-digits" class="panel" role="tabpanel" aria-labelledby="t-digits" tabindex="0" hidden>
+    <div class="card">
+      <h2 data-i18n="d_h">تبدیل ارقام</h2>
+      <label><span data-i18n="d_in">متن خود را وارد کنید</span><textarea id="dIn" rows="3">سفارش 2026 در 12 شهر ۳۴ عدد و ٥٦ نفر</textarea></label>
+      <div class="two"><div><h3 data-i18n="d_fa">ارقام فارسی</h3><p class="out" id="dFa"></p><button type="button" class="btn" data-copy="dFa" data-i18n="copy">کپی</button></div>
+      <div><h3 data-i18n="d_en">ارقام انگلیسی</h3><p class="out" id="dEn" dir="ltr"></p><button type="button" class="btn" data-copy="dEn" data-i18n="copy">کپی</button></div></div>
+    </div>
+  </section>
+</main>
+<p id="toast" class="toast" role="status" hidden></p>
+<footer><span data-i18n="foot">پروژه‌ای از Charon. همه‌چیز در مرورگر شما انجام می‌شود.</span> · <a href="../../" data-i18n="back">← بازگشت به پورتفولیو</a> · <a href="https://github.com/charon-codes/charon-portfolio/tree/main/projects/pars-tools">source</a></footer>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

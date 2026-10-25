@@ -34,7 +34,7 @@
       "help": "commands: about, skills, projects, trade, contact, clear",
       "about": "Charon, 24, Tehran.\nComputer Engineering student (B.Sc.), associate degree in programming.\nI turn ideas into live websites.",
       "skills": "HTML5 | CSS3 | JavaScript\nC# | ASP.NET MVC | SQL Server\nGit | GitHub",
-      "projects": "personal portfolio\nmore builds on the way",
+      "projects": "Gold Desk (XAUUSD)\nNira Café (concept)\nVoltix store (demo)\nFlow Board (Kanban)\nPars Tools\nthis portfolio",
       "trade": "I read markets for fun. Same habits in code: data, logic, patience."
     },
     "ahead": "Ahead"
@@ -147,10 +147,35 @@
     ]
   ],
   "projects": {
+    "gold-desk": {
+      "title": "Gold Desk (XAUUSD)",
+      "desc": "Candlestick chart, lot-size and risk calculator, and a trade journal with statistics. Simulated data, unit-tested logic.",
+      "imageAlt": "Gold Desk: a candlestick chart with entry, stop and target lines beside a position-size calculator"
+    },
+    "nira-cafe": {
+      "title": "Nira Café (concept)",
+      "desc": "Bilingual EN/FA café website with full RTL support, live opening hours, a tabbed menu and a reservation form that exports to your calendar.",
+      "imageAlt": "Nira Café website in Persian, right-to-left, with a steaming coffee cup illustration"
+    },
+    "circuit-shop": {
+      "title": "Voltix store (demo)",
+      "desc": "Search, filters, sorting, product dialogs, a persistent cart, free-shipping progress and a validated checkout. Generated product art, no image files.",
+      "imageAlt": "Voltix electronics store: a grid of product cards with a filter sidebar and cart badge"
+    },
+    "flow-board": {
+      "title": "Flow Board (Kanban)",
+      "desc": "Drag and drop plus keyboard and touch controls, undo, search, due dates and JSON import/export, on an immutable, tested board model.",
+      "imageAlt": "Flow Board: three Kanban columns with priority-tagged cards"
+    },
+    "pars-tools": {
+      "title": "Pars Tools",
+      "desc": "Jalali ↔ Gregorian converter checked against the platform calendar on 73,000 days, number-to-words, age calculator and digit converter. Persian-first.",
+      "imageAlt": "Pars Tools in Persian showing the Jalali and Gregorian date converters"
+    },
     "portfolio": {
-      "title": "Personal portfolio",
-      "desc": "Bilingual (EN/FA) site with RTL support, theming, motion and a content-driven build.",
-      "imageAlt": ""
+      "title": "This portfolio",
+      "desc": "Bilingual (EN/FA) site with RTL support, theming, motion and a content-driven build with automated checks.",
+      "imageAlt": "The portfolio hero with a live candlestick chart behind the name CHARON"
     }
   },
   "path": [
@@ -181,7 +206,7 @@
     {
       "time": "Now",
       "title": "Building real projects in public",
-      "desc": "This portfolio first, then more projects, each shipped with a live demo and source.",
+      "desc": "This portfolio plus five projects, each with a live demo, source code and tests.",
       "status": "now"
     },
     {
